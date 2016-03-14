@@ -59,7 +59,7 @@ public class DrawDemo
             pen.turn(90);
         }
     }
-    
+
     /**
      * Draw a triangle in the pen's color at the pen's location.
      */
@@ -70,8 +70,8 @@ public class DrawDemo
             pen.turn(-120);
         }
     }
-    
-     /**
+
+    /**
      * Draw a pentagon in the pen's color at the pen's location.
      */
     private void pentagon(Pen pen)
@@ -79,6 +79,17 @@ public class DrawDemo
         for (int i=0; i<5; i++) {
             pen.move(100);
             pen.turn(-72);
+        }
+    }
+
+    /**
+     * Draw a polygon in the pen's color at the pen's location.
+     */
+    public void polygon(Pen pen, int n)
+    {
+        for (int i=0; i<n; i++) {
+            pen.move(100);
+            pen.turn(-360/n);
         }
     }
 
@@ -95,11 +106,11 @@ public class DrawDemo
             int green = random.nextInt(256);
             int blue = random.nextInt(256);
             pen.setColor(new Color(red, green, blue));
-            
+
             pen.randomSquiggle();
         }
     }
-    
+
     /**
      * Clear the screen.
      */
@@ -107,7 +118,7 @@ public class DrawDemo
     {
         myCanvas.erase();
     }
-    
+
     /**
      * Draw a triangle on the screen.
      */
@@ -117,15 +128,28 @@ public class DrawDemo
         pen.setColor(Color.GREEN);
         triangle(pen);
     }
-    
-     /**
+
+    /**
      * Draw a pentagon on the screen.
      */
     public void drawPentagon()
     {
         Pen pen = new Pen(125, 125, myCanvas);
         pen.setColor(Color.GREEN);
-
         pentagon(pen);
+    }
+
+    /**
+     * Draw a polygon on the screen.
+     */
+    public void drawPolygon(int n)
+    {
+        if(n > 2){
+            Pen pen = new Pen(200, 200, myCanvas);
+            polygon(pen, n);
+        }
+        else{
+            System.out.println("No hay poligonos de " + n + " lado/s");
+        }
     }
 }
