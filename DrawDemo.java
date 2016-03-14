@@ -59,6 +59,17 @@ public class DrawDemo
             pen.turn(90);
         }
     }
+    
+    /**
+     * Draw a triangle in the pen's color at the pen's location.
+     */
+    private void triangle(Pen pen)
+    {
+        for (int i=0; i<3; i++) {
+            pen.move(100);
+            pen.turn(-120);
+        }
+    }
 
     /**
      * Draw some random squiggles on the screen, in random colors.
@@ -84,5 +95,15 @@ public class DrawDemo
     public void clear()
     {
         myCanvas.erase();
+    }
+    
+    /**
+     * Draw a triangle
+     */
+    public void drawTriangle(int x, int y)
+    {
+        Pen pen = new Pen(x, y, myCanvas);
+        pen.setColor(Color.GREEN);
+        triangle(pen);
     }
 }
