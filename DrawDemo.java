@@ -81,6 +81,17 @@ public class DrawDemo
             pen.turn(-72);
         }
     }
+    
+    /**
+     * Draw a square in the pen's color at the pen's location.
+     */
+    private void square(Pen pen, int n)
+    {
+        for (int i=0; i<4; i++) {
+            pen.move(100);
+            pen.turn(90);
+        }
+    }
 
     /**
      * Draw a polygon in the pen's color at the pen's location.
@@ -89,7 +100,20 @@ public class DrawDemo
     {
         for (int i=0; i<n; i++) {
             pen.move(100);
-            pen.turn(-360/n);
+            pen.turn(360/n);
+       }
+    }
+    
+     /**
+     * Draw a spiral in the pen's color at the pen's location.
+     */
+    public void spiral(Pen pen)
+    {
+        int a = 330;
+        for (int i=0; i<66; i++) {
+            pen.move(a);
+            pen.turn(90);
+            a = a-5;
         }
     }
 
@@ -152,4 +176,14 @@ public class DrawDemo
             System.out.println("No hay poligonos de " + n + " lado/s");
         }
     }
+    
+    /**
+     * Draw a polygon on the screen.
+     */
+    public void drawSpiral()
+    {
+        Pen pen = new Pen(100, 50, myCanvas);
+        spiral(pen);
+    }
+
 }
