@@ -70,6 +70,17 @@ public class DrawDemo
             pen.turn(-120);
         }
     }
+    
+     /**
+     * Draw a pentagon in the pen's color at the pen's location.
+     */
+    private void pentagon(Pen pen)
+    {
+        for (int i=0; i<5; i++) {
+            pen.move(100);
+            pen.turn(-72);
+        }
+    }
 
     /**
      * Draw some random squiggles on the screen, in random colors.
@@ -98,12 +109,23 @@ public class DrawDemo
     }
     
     /**
-     * Draw a triangle
+     * Draw a triangle on the screen.
      */
     public void drawTriangle(int x, int y)
     {
         Pen pen = new Pen(x, y, myCanvas);
         pen.setColor(Color.GREEN);
         triangle(pen);
+    }
+    
+     /**
+     * Draw a pentagon on the screen.
+     */
+    public void drawPentagon()
+    {
+        Pen pen = new Pen(125, 125, myCanvas);
+        pen.setColor(Color.GREEN);
+
+        pentagon(pen);
     }
 }
